@@ -1,0 +1,117 @@
+<div class="contrainer-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+
+
+            <div class="row mt-2">
+
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+
+                 
+                   
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ng-select class="my-3" [items]="listingKeywordItem" bindLabel="keyword" bindValue="keyword"
+                                placeholder="User Explored Topics" [(ngModel)]="selectedlistingKeyword" (change)="onChange()"
+                                [multiple]="true">
+                            </ng-select>
+                            
+                            
+                        </div>
+
+                        <!-- <div class="col-md-6">
+                            <ng-select class="my-3" [items]="allSourcesData" bindLabel="name"
+                                placeholder="Select Source of Information" [(ngModel)]="selectedSource"
+                                [clearable]="false" (change)="onChange()" [searchable]="true">
+                            </ng-select>
+                        </div> -->
+
+                       <!--  <div class="col-md-6">
+                            <input class="form-control searchTerm my-3" type="text" name="searchText"
+                                [(ngModel)]="searchText" (ngModelChange)="getSearchData()" 
+                                placeholder="What are you looking for?">
+                        </div> -->
+                    </div>
+
+
+                    <!-- </nav> -->
+
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <div class="row">
+
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <table class="table table-rf table-mobile">
+
+                            <tbody style="max-height: 65vh !important;"
+                                *ngIf="allListingData?.length > 0 else noRecordsFound">
+
+                                <tr
+                                    *ngFor="let listItem of allListingData |  paginate: paginationConfig">
+
+
+
+                                    <div class="card col-md-12 " style="width: 100%;">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-5">
+                                                <img class="card-img"
+                                                    [src]="(listItem.urlToImage != null) ?listItem.urlToImage :  '../../../assets/images/Article1.png'"
+                                                    [alt]="(listItem.title)" width="60px" height="200px">
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{listItem.title}}</h5>
+                                                    <p class="card-text">
+                                                        {{(listItem.description)?(listItem.description):"-"}}</p>
+                                                    <a (click)="viewFullArticle(listItem.url)"
+                                                        class="btn btn-secondary">View Full Article</a>
+
+
+                                                    <span id="emailHelp" class="form-text text-muted"
+                                                        style="float: right;">{{(listItem.publishedAt)?
+                                                        (listItem.publishedAt | date:'medium'):'-'}}</span>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </tr>
+
+
+                            </tbody>
+
+                            <span *ngIf="allListingData?.length > 0">
+                                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+                            </span>
+
+                            <ng-template #noRecordsFound>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="11" align="center">No Records Found</td>
+                                    </tr>
+                                </tfoot>
+                            </ng-template>
+                        </table>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>

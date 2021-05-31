@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@ng-select/ng-select/themes/default.theme.css";   /* ng-select css */
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(250, 251, 252);
+}
+
+
+.cursor {
+  cursor: pointer;
+}
+
+
+.table-rf {
+  border-collapse: separate;
+  border-spacing: 0 8px!important;
+}
+
+.table>thead>tr>th {
+  vertical-align: top!important;
+  word-break: normal!important;
+}
+
+.table-rf tbody tr:hover td {
+  background-color: white!important;
+}
+
+.table-rf tbody tr:hover td {
+  background: #fff;
+}
+
+.ng-select.custom, .ng-control {
+  /* background-color:#f3f7fe; */
+  background-color: #eeeeee !important;
+  width: 100%;
+
+}
+
+.ng-select, .ng-select-container{
+  background-color: #eeeeee !important;
+}

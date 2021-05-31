@@ -1,0 +1,122 @@
+<div class="contrainer-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> -->
+
+      <div class="row mt-2">
+
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+
+          <span class="">
+            <!-- <nav class="navbar"> -->
+            <!-- <input class="form-control my-3" type="text" name="searchText" [(ngModel)]="searchText"
+              (ngModelChange)="getSearchData()" placeholder="What are you looking for?"> -->
+            <!-- </nav> -->
+
+            <div class="input-group">
+              <input class="form-control my-3" type="text" name="searchText" [(ngModel)]="searchText"
+                (ngModelChange)="getSearchData()" style="border-top-right-radius: 0%;border-bottom-right-radius: 0%;"
+                placeholder="What are you looking for?">
+
+
+              <span class="input-group-append my-3 icon"  (click)="saveKeyword()" title="Add Keyword to Topics">
+                <span class="input-group-text "
+                  style="padding: 10px;border-top-left-radius: 0%; border-bottom-left-radius: 0%;">
+                  <i class="fa fa-archive" aria-hidden="true"></i>
+                </span>
+              </span>
+            </div>
+
+          </span>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <div class="row">
+
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <table class="table table-rf table-mobile">
+              <!-- <thead> -->
+              <!-- <tr> -->
+              <!-- <th style="width:30%;"></th>
+                          <th style="width:60%;"></th>
+                          <th style="width:10%;"></th> -->
+
+
+              <!-- </tr> -->
+              <!-- </thead> -->
+              <tbody style="max-height: 65vh !important;" *ngIf="allTopHeading?.length > 0 else noRecordsFound">
+
+                <tr *ngFor="let heading of allTopHeading | paginate: paginationConfig">
+
+                  <!-- <td style="width:6%;">{{(client.ClientErpCode['@nil'])? "-" : (client.ClientErpCode)}}</td>
+                          <td style="width:10%;">{{(client.ClntTypeName['@nil'])? "-" : (client.ClntTypeName)}}</td>
+                          <td style="width:12%;">{{(client.ClientGroupName['@nil'])? "-" : (client.ClientGroupName)}}</td> -->
+
+                  <!--  <td style="width:30%;">{{client}}</td>
+                          <td style="width:60%;">{{client}}</td>
+                          <td style="width:10%;">{{client}}</td> -->
+
+
+                  <div class="card col-md-12 " style="width: 100%;">
+                    <div class="row no-gutters">
+                      <div class="col-md-5">
+                        <img class="card-img"
+                          [src]="(heading.urlToImage != null) ?heading.urlToImage :  '../../../assets/images/Article1.png'"
+                          [alt]="(heading.title)" width="60px" height="200px">
+                      </div>
+                      <div class="col-md-7">
+                        <div class="card-body">
+                          <h5 class="card-title">{{heading.title}}</h5>
+                          <p class="card-text">{{(heading.description)?(heading.description):"-"}}</p>
+                          <a (click)="viewFullArticle(heading.url)" class="btn btn-secondary">View Full Article</a>
+
+                          <!-- <p class="alignleft">Text on the left.</p> -->
+                          <!-- <p class="alignright" style="float: right;">Text on the right.</p> -->
+                          <span id="emailHelp" class="form-text text-muted"
+                            style="float: right;">{{(heading.publishedAt)? (heading.publishedAt |
+                            date:'medium'):'-'}}</span>
+
+
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </tr>
+
+                <!-- <div class="col-md-12 text-center" *ngIf="totalPages > 1 && currentPageNo!=totalPages">
+                          <button class="btn btn-default btn-showmore" (click)="showMore()">Show More</button>
+                        </div> -->
+
+              </tbody>
+
+              <span *ngIf="allTopHeading?.length > 0">
+                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+              </span>
+
+              <ng-template #noRecordsFound>
+                <tfoot>
+                  <tr>
+                    <td colspan="11" align="center">No Records Found</td>
+                  </tr>
+                </tfoot>
+              </ng-template>
+            </table>
+          </div>
+
+        </div>
+
+
+
+        <!-- </div> -->
+
+      </div>
+    </div>
+  </div>

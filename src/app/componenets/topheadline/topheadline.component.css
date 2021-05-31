@@ -1,0 +1,19 @@
+.table > :not(:last-child) > :last-child > * {
+    border-bottom-color: #dbdcdc;
+}
+
+
+
+
+
+.icon{
+    opacity: 0.6;
+    /* transform: scale(1); */
+    transition: all 0.3s ease-in-out 0.2s;
+}
+
+.icon:hover{
+    opacity: 1;
+    /* transform: scale(2); */
+    transition: all 0.3s ease-in-out 0.1s;
+}

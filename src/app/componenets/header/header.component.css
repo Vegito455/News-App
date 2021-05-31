@@ -1,0 +1,31 @@
+.bg-light {
+    /* padding-left: 0.5rem !important; */
+    /* padding-right: 0.5rem !important; */
+    background-color: #eeeeee !important;
+}
+
+.imageIcon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.imageIcon:hover {
+    border: 5px;
+    border-color: #eeeeee;
+    cursor: pointer;
+    transform: scale(1);
+    /* zoom: normal; */
+}
+
+.menu, .user{
+    opacity: 0.5;
+    /* transform: scale(1); */
+    transition: all 0.3s ease-in-out 0.2s;
+}
+
+.menu:hover, .user:hover{
+    opacity: 1;
+    /* transform: scale(2); */
+    transition: all 0.3s ease-in-out 0.1s;
+}

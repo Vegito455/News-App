@@ -1,0 +1,49 @@
+<div class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <nav class="navbar navbar-fixed-top navbar-light bg-light">
+    <div class="container-fluid row">
+
+      <div class="col-md-7 ">
+        <a class="navbar-brand cursor">
+          <img [routerLink]="['/home']" src="../../../assets/images/logo.png" alt="" width="60px" height="60px" />
+          <b class="m-3">News-App</b>
+        </a>
+
+        <span class="mx-2 cursor menu" [routerLink]="['./top-headlines']"><b>Top-Headlines</b></span>
+        <span class="mx-2 cursor menu" [routerLink]="['./explore']"><b>Explore</b></span>
+        <span class="mx-2 cursor menu" [routerLink]="['./topic']"><b>Topics</b></span>
+
+      </div>
+
+      <div class="col-md-5">
+        <div style="display: flex; justify-content: flex-end">
+
+          <div *ngIf="!this.loginFlag">
+            <button class="btn btn-primary mx-2" type="button" (click)="loginWithPopUp()">Login</button>
+          </div>
+
+          <!-- user already logged in -->
+          <div *ngIf="this.loginFlag">
+
+            <span class="mx-2 ">
+              <b>Welcome!
+                <span class="user cursor">{{ userName }} </span>
+              </b>
+            </span>
+
+            <img class="imageIcon mx-2 " [src]="imageURL">
+
+            <button class="btn btn-primary mx-2 signoutbutton" type="button" (click)="Signout()">Sign out</button>
+          </div>
+          <!-- <button class="btn btn-primary mx-1" type="button" (click)="CheckCurrentUser()">Check User</button> -->
+
+
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+</div>
+
+
