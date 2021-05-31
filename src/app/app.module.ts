@@ -30,6 +30,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -77,8 +78,12 @@ import { ToastrModule } from 'ngx-toastr';
           }
         ]
       } as SocialAuthServiceConfig,
-    }    
+    },
+    {
+      provide: APP_BASE_HREF, useValue : '/'
+    }  
   ],
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
